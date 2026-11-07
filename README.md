@@ -269,7 +269,7 @@ Counterweight/
 - [x] **Phase 1** &nbsp; Grid, tilemaps, palette, ground and hazard colliders
 - [x] **Phase 2** &nbsp; Two player input and role based movement
 - [x] **Phase 3** &nbsp; Camera follow and screen edge walls
-- [ ] **Phase 4** &nbsp; Pickups and HUD
+- [x] **Phase 4** &nbsp; Pickups and HUD
 - [ ] **Phase 5** &nbsp; Hazards, death and checkpoints
 - [ ] **Phase 6** &nbsp; Cooperative mechanics
 - [ ] **Phase 7** &nbsp; Win condition

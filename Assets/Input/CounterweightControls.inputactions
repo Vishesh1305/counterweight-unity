@@ -187,6 +187,35 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Game",
+            "id": "a23b6212-c686-408b-88d3-c53d79944d94",
+            "actions": [
+                {
+                    "name": "RestartCheckpoint",
+                    "type": "Button",
+                    "id": "92597480-56f0-466d-a6e6-cb061cb52f15",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6122fd8a-9d02-473b-97c4-5674fd39cb6e",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RestartCheckpoint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

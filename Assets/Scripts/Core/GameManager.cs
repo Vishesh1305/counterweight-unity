@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Counterweight.Core
 {
-    // Owns game-wide state. Pickup counts now; win and lose state are added in later phases.
     [DefaultExecutionOrder(-100)]
     public class GameManager : MonoBehaviour
     {
@@ -17,8 +16,13 @@ namespace Counterweight.Core
 
         public bool AllPickupsCollected => CoinsCollected >= CoinsTotal && GemsCollected >= GemsTotal;
 
-        // Raised whenever any count or total changes, so the HUD never has to poll.
+        public GameState State { get; private set; } = GameState.Playing; 
+
+
         public event Action PickupCountsChanged;
+
+
+        public event Action RespawnStarted; 
 
         private void Awake()
         {
@@ -67,5 +71,31 @@ namespace Counterweight.Core
 
             PickupCountsChanged?.Invoke();
         }
+
+
+        public void ReportPlayerDeath()  
+        {   
+            BeginRespawn();   
+        }  
+        
+        public void RequestCheckpointRestart()   
+        {  
+            BeginRespawn();  
+        }   
+
+        public void CompleteRespawn() 
+        {   
+            if (State == GameState.Respawning)   
+                State = GameState.Playing; 
+        } 
+
+        private void BeginRespawn() 
+        { 
+            if (State != GameState.Playing)   
+                return;   
+
+            State = GameState.Respawning; 
+            RespawnStarted?.Invoke();
+        } //  
     }
 }

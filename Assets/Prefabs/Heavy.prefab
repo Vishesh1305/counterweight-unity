@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 9222064833268260321}
   - component: {fileID: 7673652721828744140}
   - component: {fileID: 3695090890708056165}
+  - component: {fileID: 3819855418638158984}
   m_Layer: 8
   m_Name: Heavy
   m_TagString: Untagged
@@ -267,3 +268,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Counterweight.Player.PlayerIdentity
   role: 1
+--- !u!114 &3819855418638158984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6658921062224548829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d3337670183c34ca32f8eb814a2c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Counterweight.Player.PlayerHazardDetector
+  hazardLayers:
+    serializedVersion: 2
+    m_Bits: 128
