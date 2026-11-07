@@ -71,6 +71,7 @@ namespace Counterweight.Player
             _coyoteTimer = IsGrounded ? coyoteTime : _coyoteTimer - Time.fixedDeltaTime;
 
             velocity.x = input.MoveInput * moveSpeed;
+            velocity.x += GetCarryVelocityX(); 
 
             if (_jumpBufferTimer > 0f && _coyoteTimer > 0f)
             {
@@ -101,5 +102,15 @@ namespace Counterweight.Player
             float gravity = Mathf.Abs(Physics2D.gravity.y * _body.gravityScale);
             return Mathf.Sqrt(2f * gravity * jumpHeight);
         }
+
+        // Horizontal speed of whatever we stand on. Players use zero friction, so without this they would slide off movers. 
+        private float GetCarryVelocityX() 
+        { 
+            if (!IsGrounded) 
+                return 0f; 
+
+            Rigidbody2D ground = groundCheck.GroundBody; 
+            return ground != null ? ground.linearVelocity.x : 0f; 
+        } 
     }
 }

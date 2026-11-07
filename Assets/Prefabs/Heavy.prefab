@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 7673652721828744140}
   - component: {fileID: 3695090890708056165}
   - component: {fileID: 3819855418638158984}
+  - component: {fileID: 2761924478981185344}
   m_Layer: 8
   m_Name: Heavy
   m_TagString: Untagged
@@ -283,3 +284,20 @@ MonoBehaviour:
   hazardLayers:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &2761924478981185344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6658921062224548829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b40dfadf864ce34d9f8109d714c0ea9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Counterweight.Player.PlayerInteractor
+  input: {fileID: 3014654663505465676}
+  reach: 0.8
+  interactableLayers:
+    serializedVersion: 2
+    m_Bits: 2048

@@ -270,8 +270,8 @@ Counterweight/
 - [x] **Phase 2** &nbsp; Two player input and role based movement
 - [x] **Phase 3** &nbsp; Camera follow and screen edge walls
 - [x] **Phase 4** &nbsp; Pickups and HUD
-- [ ] **Phase 5** &nbsp; Hazards, death and checkpoints
-- [ ] **Phase 6** &nbsp; Cooperative mechanics
+- [x] **Phase 5** &nbsp; Hazards, death and checkpoints
+- [x] **Phase 6** &nbsp; Cooperative mechanics
 - [ ] **Phase 7** &nbsp; Win condition
 - [ ] **Phase 8** &nbsp; Full multi screen level
 - [ ] **Phase 9** &nbsp; Sprite animation

@@ -19,6 +19,8 @@ namespace Counterweight.Player
 
         public bool IsGrounded { get; private set; }
 
+
+        public Rigidbody2D GroundBody { get; private set; } 
         private void Awake()
         {
             if (bodyCollider == null)
@@ -33,9 +35,11 @@ namespace Counterweight.Player
             filter.useTriggers = false;
         }
 
-        // Called by PlayerMovement at the start of each physics step so the result is never a step old.
+
         public void Refresh()
         {
+            GroundBody = null; // Phase 6
+
             if (!enabled)
             {
                 IsGrounded = false;
@@ -48,14 +52,31 @@ namespace Counterweight.Player
             IsGrounded = false;
             for (int i = 0; i < count; i++)
             {
-                // Skip our own collider, so the Player layer can be in the mask later for stacking.
+
                 if (results[i] != bodyCollider)
                 {
                     IsGrounded = true;
+                    GroundBody = FindMovingGround(i, count); 
                     return;
                 }
             }
         }
+
+
+        private Rigidbody2D FindMovingGround(int startIndex, int count) 
+        { 
+            for (int i = startIndex; i < count; i++) 
+            { 
+                if (results[i] == bodyCollider) 
+                    continue; 
+
+                Rigidbody2D body = results[i].attachedRigidbody; 
+                if (body != null && body.bodyType != RigidbodyType2D.Static) 
+                    return body; 
+            } 
+
+            return null; 
+        } 
 
         private void GetCheckBox(out Vector2 center, out Vector2 size)
         {
