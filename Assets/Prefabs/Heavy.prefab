@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 3695090890708056165}
   - component: {fileID: 3819855418638158984}
   - component: {fileID: 2761924478981185344}
+  - component: {fileID: 8334321439463373905}
   m_Layer: 8
   m_Name: Heavy
   m_TagString: Untagged
@@ -234,7 +235,7 @@ MonoBehaviour:
   bodyCollider: {fileID: 155925169951763496}
   groundLayers:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 1344
   widthRatio: 0.9
   checkHeight: 0.1
 --- !u!114 &7673652721828744140
@@ -301,3 +302,24 @@ MonoBehaviour:
   interactableLayers:
     serializedVersion: 2
     m_Bits: 2048
+--- !u!114 &8334321439463373905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6658921062224548829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e71d34f5d329142a77e89faf182c15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Counterweight.Player.CratePusher
+  input: {fileID: 3014654663505465676}
+  movement: {fileID: 7673652721828744140}
+  bodyCollider: {fileID: 155925169951763496}
+  crateLayers:
+    serializedVersion: 2
+    m_Bits: 1024
+  pushSpeed: 3
+  probeDepth: 0.1
+  probeHeightRatio: 0.8
