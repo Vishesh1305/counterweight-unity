@@ -16,13 +16,16 @@ namespace Counterweight.Core
 
         public bool AllPickupsCollected => CoinsCollected >= CoinsTotal && GemsCollected >= GemsTotal;
 
-        public GameState State { get; private set; } = GameState.Playing; 
+        public GameState State { get; private set; } = GameState.Playing;
 
 
         public event Action PickupCountsChanged;
 
 
-        public event Action RespawnStarted; 
+        public event Action RespawnStarted;
+
+        // Raised once when both players reach the exit with every pickup collected. // Phase 7
+        public event Action Won; // Phase 7
 
         private void Awake()
         {
@@ -73,29 +76,37 @@ namespace Counterweight.Core
         }
 
 
-        public void ReportPlayerDeath()  
-        {   
-            BeginRespawn();   
-        }  
-        
-        public void RequestCheckpointRestart()   
-        {  
-            BeginRespawn();  
-        }   
+        public void ReportPlayerDeath()
+        {
+            BeginRespawn();
+        }
 
-        public void CompleteRespawn() 
-        {   
-            if (State == GameState.Respawning)   
-                State = GameState.Playing; 
-        } 
+        public void RequestCheckpointRestart()
+        {
+            BeginRespawn();
+        }
 
-        private void BeginRespawn() 
-        { 
-            if (State != GameState.Playing)   
-                return;   
+        public void CompleteRespawn()
+        {
+            if (State == GameState.Respawning)
+                State = GameState.Playing;
+        }
 
-            State = GameState.Respawning; 
+        private void BeginRespawn()
+        {
+            if (State != GameState.Playing)
+                return;
+
+            State = GameState.Respawning;
             RespawnStarted?.Invoke();
         } //  
+
+        public void DeclareWin()
+        {
+            if (State != GameState.Playing || !AllPickupsCollected)
+                return;
+            State = GameState.Won; 
+            Won?.Invoke();
+        } 
     }
 }
